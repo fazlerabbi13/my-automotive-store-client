@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
     const {signInUser,signinWithGoogle} =useContext(AuthContext);
@@ -10,6 +11,11 @@ const Login = () => {
         const email =e.target.email.value;
         const password =e.target.password.value;
         console.log(email,password);
+      
+        if (password.length < 6) {
+          toast.error('password should be al least 6 charecter')
+          return;
+        }
 
         signInUser(email,password)
         .then(result => {
