@@ -1,17 +1,18 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCy0A-gyco9MDHbY_J5N8i0c8kRuxfwu7k",
-  authDomain: "automotive-160b6.firebaseapp.com",
-  projectId: "automotive-160b6",
-  storageBucket: "automotive-160b6.appspot.com",
-  messagingSenderId: "1035004572966",
-  appId: "1:1035004572966:web:4e1b84ccfed960dfdf7de7"
+  apiKey: "AIzaSyB99SQUOy6dBnDBl3QqFIsnAxxzUIg_NG8",
+  authDomain: "automotive-store-2264f.firebaseapp.com",
+  projectId: "automotive-store-2264f",
+  storageBucket: "automotive-store-2264f.appspot.com",
+  messagingSenderId: "843460287481",
+  appId: "1:843460287481:web:1915402efee70ea8f13b28"
 };
 
 // Initialize Firebase

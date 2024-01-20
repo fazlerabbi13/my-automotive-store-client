@@ -1,6 +1,27 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext);
+    
 
+    const handleRegister = e =>{
+        e.preventDefault();
+        const name =e.target.name.value;
+        const email =e.target.email.value;
+        const password =e.target.password.value;
+        console.log(name,email,password);
+
+        createUser(email,password)
+        .then(result =>{
+            console.log(result.user);
+        })
+        .catch(error =>{
+            console.log.error(error);
+        })
+        
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row-reverse">
@@ -9,7 +30,7 @@ const Register = () => {
       <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
     </div>
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form className="card-body">
+      <form onSubmit={handleRegister} className="card-body">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Name</span>
@@ -20,7 +41,7 @@ const Register = () => {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" name="email" placeholder=" enter your email" className="input input-bordered" required />
+          <input type="email" name="email" placeholder="enter your email" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
@@ -35,6 +56,8 @@ const Register = () => {
           <button className="btn btn-primary">Login</button>
         </div>
       </form>
+      <p className="mx-auto mb-4"> Do You have an account?Please <Link className="text-blue-600 font-bold" to="/login">Login</Link> </p>
+
     </div>
   </div>
 </div>
