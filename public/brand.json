@@ -3,32 +3,32 @@
    
     {
         "id": 1,
-        "name": "Tesla",
+        "brandName": "Tesla",
         "img_url": "https://i.ibb.co/25Yhfqp/TESLA-LOGO.webp"
     },
     {
         "id": 2,
-        "name": "Toyota",
+        "brandName": "Toyota",
         "img_url": "https://i.ibb.co/fQGjnFG/emblem-ogp-001.png"
     },
     {
         "id": 3,
-        "name": "BMW",
+        "brandName": "BMW",
         "img_url": "https://i.ibb.co/tbHsJgG/bmw-roundel-black2332-logowik-com.webp"
     },
     {
         "id": 4,
-        "name": "Mercedes-Benz",
+        "brandName": "Mercedes-Benz",
         "img_url": "https://i.ibb.co/26mL3y4/images.jpg"
     },
     {
         "id": 5,
-        "name": "Ford",
+        "brandName": "Ford",
         "img_url": "https://i.ibb.co/TrFhSPP/567-ford.jpg"
     },
     {
         "id": 6,
-        "name": "Honda",
+        "brandName": "Honda",
         "img_url": "https://i.ibb.co/K0bkYyL/3b4f3fdc10d85a893ccc04288bf06f2d.jpg"
     }
 ]
