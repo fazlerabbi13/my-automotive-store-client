@@ -1,11 +1,16 @@
 import { useLoaderData } from "react-router-dom";
+import BrandAllProduct from "./BrandAllProduct";
 
 const BrandProducts = () => {
-    const brandsProduct = useLoaderData()
-    console.log(brandsProduct);
+    const allBrand = useLoaderData()
+    console.log(allBrand);
     return (
         <div>
-            <h1>hello</h1>
+           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto">
+            {
+                allBrand.map(speacificBrandProducts => <BrandAllProduct speacificBrandProducts ={speacificBrandProducts}></BrandAllProduct>)
+            }
+           </div>
         </div>
     );
 };
