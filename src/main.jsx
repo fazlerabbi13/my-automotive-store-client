@@ -16,6 +16,7 @@ import AuthProvider from './Provider/AuthProvider';
 import BrandProducts from './components/BrandProducts';
 import Update from './Pages/UpdateProduct';
 import UpdateProduct from './Pages/UpdateProduct';
+import ProductDetails from './components/ProductDetails';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,6 +53,11 @@ const router = createBrowserRouter([
       {
         path:'/updateProduct',
         element:<UpdateProduct></UpdateProduct>
+      },
+      {
+        path:'/productDetails/:name',
+        element:<ProductDetails></ProductDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/productDetails/${params.name}`)
       }
     ]
   },
