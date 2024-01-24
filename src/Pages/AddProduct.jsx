@@ -12,7 +12,7 @@ const AddProduct = () => {
       const product = form.product.value;
       const price = form.price.value;
       const short = form.short.value;
-      const rating = form.Image.value;
+      const rating = form.rating.value;
   
       const newAddProduct ={
         image,name,brand,product,price,short,rating

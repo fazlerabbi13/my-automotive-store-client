@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BrandAllProduct = ({ speacificBrandProducts }) => {
     const { image, name, brand, product, price, short } = speacificBrandProducts;
@@ -8,13 +9,17 @@ const BrandAllProduct = ({ speacificBrandProducts }) => {
                 <img src={image} alt="Shoes" className="rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
-                <h2 className="card-title">{brand}</h2>
-                <p>{name}</p>
-                <p>{price}</p>
+                <h2 className="text-3xl">{brand}</h2>
+                <p className='text-xl'>{name}</p>
+                <p className='text-xl'>{price}</p>
                 <p>{short}</p>
                 <div className="card-actions">
-                    <button className="btn btn-primary">Update</button>
-                    <button className="btn btn-primary">Add To Cart</button>
+                    <Link to='/updateProduct'>
+                        <button className="btn btn-primary">Update Prodect</button>
+                    </Link>
+                    <Link>
+                        <button className="btn btn-primary">Details</button>
+                    </Link>
                 </div>
             </div>
         </div>
