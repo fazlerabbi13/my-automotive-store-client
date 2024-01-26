@@ -1,9 +1,42 @@
+
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
 
     const productDetails = useLoaderData()
-    const { brand, image, short } = productDetails;
+    const { brand, image,name, price,id, product, short } = productDetails;
+
+    const handleAddToCart = (event)=>{
+        event.preventDefault();
+        const newCartProduct ={
+          image,name,id,brand,product,price,short
+        }
+        console.log(newCartProduct);
+
+    
+        fetch('http://localhost:5000/carts',{
+          method:'POST',
+          headers:{
+            'content-type':'application/json'
+          },
+          body:JSON.stringify(newCartProduct)
+        })
+        .then(res =>res.json())
+        .then(data => {
+          console.log(data);
+          if(data.insertedId){
+            Swal.fire({
+              title: 'Success',
+              text: 'added product on your cart successfully',
+              icon: 'success',
+              confirmButtonText: 'ok'
+            })
+          }
+        })
+    
+    
+      }
 
     return (
         <div className="mx-auto mt-10 mb-10 border card w-96 bg-base-100 shadow-xl">
@@ -24,7 +57,7 @@ const ProductDetails = () => {
                     </div>
                 </p>
                 <div className="card-actions">
-                    <button className="btn btn-primary">Add To Cart</button>
+                    <button onClick={handleAddToCart} className="btn btn-primary">Add To Cart</button>
                 </div>
             </div>
         </div>
