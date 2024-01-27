@@ -9,7 +9,7 @@ const ProductDetails = () => {
 
     const handleAddToCart = (event)=>{
         event.preventDefault();
-        const newCartProduct ={
+        const newCartProduct = {
           image,name,brand,product,price,short
         }
         console.log(newCartProduct);

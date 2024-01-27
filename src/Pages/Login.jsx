@@ -25,7 +25,8 @@ const Login = () => {
       .then(result => {
         console.log(result.user);
         e.target.reset();
-        navigate('/');
+         navigate('/');
+        
       })
       .catch(error => {
         console.error(error);
@@ -34,7 +35,10 @@ const Login = () => {
   }
   const handleGoogleSignIn = () => {
     signinWithGoogle()
-      .then(result => console.log(result.user))
+      .then(result => {
+        console.log(result.user)
+        navigate('/')
+      })
       .catch(error => console.error(error))
   }
   return (

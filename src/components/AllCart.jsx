@@ -1,10 +1,13 @@
+import { useState } from "react";
 import Swal from "sweetalert2";
 
-const AllCart = ({ cartData,carts,setCarts }) => {
-    const { image, name, _id, brand, product, price, short } = cartData
+const AllCart = ({ cartData }) => {
+    
+    const [carts,setCarts] = useState();
+    const { image, name, _id, brand, product, price, short } = cartData;
 
     const handleDelete = (_id) => {
-        console.log(_id);
+        // console.log(_id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -29,7 +32,7 @@ const AllCart = ({ cartData,carts,setCarts }) => {
                                 icon: "success"
                             });
 
-                            const remainingCarts = carts.filter(car =>car._id !== _id)
+                            const remainingCarts = carts.filter(cart =>cart._id !== _id)
                             setCarts(remainingCarts);
                         }
                     })

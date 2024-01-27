@@ -1,19 +1,19 @@
-// import React, { useContext } from 'react';
-// import { AuthContext } from '../Provider/AuthProvider';
-// import { Navigate } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { AuthContext } from '../Provider/AuthProvider';
+import { Navigate } from 'react-router-dom';
 
-// const PrivetRoute = ({children}) => {
-//     const {user,loading} = useContext(AuthContext)
+const PrivetRoute = ({children}) => {
+    const {user,loading} = useContext(AuthContext)
    
-//     if(loading){
-//         return <span className="loading loading-spinner text-info"></span>
-//     }
+    if(loading){
+        return <span className="loading loading-spinner text-info"></span>
+    }
    
-//     if(!user?.email){
-//         return <Navigate to='/login'/>
-//     }
+    if(!user?.email){
+        return <Navigate to='/login'/>
+    }
 
-//     return children;
-// };
+    return children;
+};
 
-// export default PrivetRoute;
+export default PrivetRoute;

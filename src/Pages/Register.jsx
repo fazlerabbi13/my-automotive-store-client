@@ -18,11 +18,17 @@ const Register = () => {
       toast.error('password should be al least 6 charecter')
       return;
     }
+    else if(!/^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$/.test(password)){
+      toast.error('password should have special character')
+      return;
+    }
 
 
     createUser(email, password)
       .then(result => {
         console.log(result.user);
+        e.target.reset();
+         navigate('/login');
       })
       .catch(error => {
         console.log(error);
