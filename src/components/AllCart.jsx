@@ -1,6 +1,40 @@
+import Swal from "sweetalert2";
 
 const AllCart = ({ cartData }) => {
-    const { image, name, id, brand, product, price, short } = cartData
+    const { image, name, _id, brand, product, price, short } = cartData
+
+    const handleDelete = (_id) => {
+        console.log(_id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/carts/${_id}`, {
+                    method:'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your cart has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+            }
+        });
+    }
+
     return (
         <div className="border card w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
@@ -18,11 +52,11 @@ const AllCart = ({ cartData }) => {
                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"checked />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
                     </div>
                 </p>
                 <div className="card-actions">
-                    <button className="btn btn-primary">Delete From Cart</button>
+                    <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete From Cart</button>
                 </div>
             </div>
         </div>

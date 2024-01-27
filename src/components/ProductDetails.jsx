@@ -5,12 +5,12 @@ import Swal from "sweetalert2";
 const ProductDetails = () => {
 
     const productDetails = useLoaderData()
-    const { brand, image,name, price,id, product, short } = productDetails;
+    const { brand, image,name, price, product, short } = productDetails;
 
     const handleAddToCart = (event)=>{
         event.preventDefault();
         const newCartProduct ={
-          image,name,id,brand,product,price,short
+          image,name,brand,product,price,short
         }
         console.log(newCartProduct);
 
