@@ -2,11 +2,11 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 
 const AllCart = ({ cartData }) => {
-    
-    const [carts,setCarts] = useState();
-    const { image, name, _id, brand, product, price, short } = cartData;
 
-    const handleDelete = (_id) => {
+    const { image, name, _id, brand, product, price, short } = cartData;
+    const [carts, setCarts] = useState();
+
+    const handleDelete = (id) => {
         // console.log(_id);
         Swal.fire({
             title: "Are you sure?",
@@ -20,7 +20,7 @@ const AllCart = ({ cartData }) => {
             if (result.isConfirmed) {
 
                 fetch(`http://localhost:5000/carts/${_id}`, {
-                    method:'DELETE'
+                    method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
@@ -32,9 +32,11 @@ const AllCart = ({ cartData }) => {
                                 icon: "success"
                             });
 
-                            const remainingCarts = carts.filter(cart =>cart._id !== _id)
+                            const remainingCarts = carts.filter(cart => cart._id !== _id)
                             setCarts(remainingCarts);
+
                         }
+
                     })
 
             }
@@ -44,7 +46,7 @@ const AllCart = ({ cartData }) => {
     return (
         <div className="border card w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
-                <img src={image} alt="Shoes" className="rounded-xl" />
+                <img  src={image} alt="Shoes" className="rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{brand}</h2>
