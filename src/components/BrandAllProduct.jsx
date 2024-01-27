@@ -15,7 +15,7 @@ const BrandAllProduct = ({ speacificBrandProducts }) => {
                 <p className='text-xl'>{price}</p>
                 <p>{short}</p>
                 <div className="card-actions">
-                    <Link to={`/updateProduct/${id}`}>
+                    <Link to={`/updateProduct/${_id}`}>
                         <button className="btn btn-primary">Update Prodect</button>
                     </Link>
                     <Link to={`/productDetails/${name}`}>

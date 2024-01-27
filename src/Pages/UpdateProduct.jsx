@@ -1,14 +1,14 @@
 
-// import { useLoaderData, useParams } from 'react-router-dom';
+ import { useLoaderData, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 const UpdateProduct = () => {
    
-    // const specificCar = useLoaderData()
-    // const { id } = useParams()
-    // const findSpecicOne = specificCar.find(oneProduct => oneProduct._id === id)
-    // console.log(findSpecicOne)
-    // const { image, name, brand, product, _id, price, short } = findSpecicOne;
+    const specificCar = useLoaderData()
+    const { id } = useParams()
+    const findSpecicOne = specificCar.find(oneProduct => oneProduct._id === id)
+    console.log(findSpecicOne)
+    const { image, name, brand, product, _id, price, short } = findSpecicOne;
    
     const handleUpdateProduct = event => {
         event.preventDefault();
