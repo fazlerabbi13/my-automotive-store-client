@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 
-const AllCart = ({ cartData }) => {
+const AllCart = ({ cartData,carts,setCarts }) => {
     const { image, name, _id, brand, product, price, short } = cartData
 
     const handleDelete = (_id) => {
@@ -28,6 +28,9 @@ const AllCart = ({ cartData }) => {
                                 text: "Your cart has been deleted.",
                                 icon: "success"
                             });
+
+                            const remainingCarts = carts.filter(car =>car._id !== _id)
+                            setCarts(remainingCarts);
                         }
                     })
 
