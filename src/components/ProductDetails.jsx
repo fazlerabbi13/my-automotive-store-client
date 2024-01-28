@@ -1,43 +1,43 @@
 
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ProductDetails = () => {
 
-    const productDetails = useLoaderData()
-    const { brand, image,name, price, product, short } = productDetails;
-    console.log(name)
-
-    const handleAddToCart = (event)=>{
-        event.preventDefault();
-        const newCartProduct = {
-          image,name,brand,product,price,short
-        }
-        console.log(newCartProduct);
+    const specificCar = useLoaderData()
+    const { id } = useParams()
+    const findSpecicOne = specificCar.find(oneProduct => oneProduct._id === id)
+    console.log(findSpecicOne)
+    const { image, name, brand, product, _id, price, short } = findSpecicOne;
+   
 
     
-        fetch('http://localhost:5000/carts',{
-          method:'POST',
-          headers:{
-            'content-type':'application/json'
-          },
-          body:JSON.stringify(newCartProduct)
+    const handleAddToCart = () => {
+
+        const newAddProduct ={brand,image,name,price,short,product}
+
+        fetch(`http://localhost:5000/carts`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newAddProduct)
         })
-        .then(res =>res.json())
-        .then(data => {
-          console.log(data);
-          if(data.insertedId){
-            Swal.fire({
-              title: 'Success',
-              text: 'added product on your cart successfully',
-              icon: 'success',
-              confirmButtonText: 'ok'
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'added product on your cart successfully',
+                        icon: 'success',
+                        confirmButtonText: 'ok'
+                    })
+                }
             })
-          }
-        })
-    
-    
-      }
+
+
+    }
 
     return (
         <div className="mx-auto mt-10 mb-10 border card w-96 bg-base-100 shadow-xl">
@@ -46,19 +46,22 @@ const ProductDetails = () => {
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{brand}</h2>
+                <p>{name}</p>
                 <p>{short}</p>
                 <p>
                     <span className="text-2xl mr-2">4.5</span>
                     <div className="rating">
                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"  />
                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"checked />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
                     </div>
                 </p>
                 <div className="card-actions">
-                    <button onClick={handleAddToCart} className="btn btn-primary">Add To Cart</button>
+                   
+                        <button onClick={handleAddToCart} className="btn btn-primary">Add To Cart</button>
+                   
                 </div>
             </div>
         </div>

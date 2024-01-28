@@ -14,7 +14,6 @@ import Register from './Pages/Register';
 import MyCart from './Pages/MyCart';
 import AuthProvider from './Provider/AuthProvider';
 import BrandProducts from './components/BrandProducts';
-import Update from './Pages/UpdateProduct';
 import UpdateProduct from './Pages/UpdateProduct';
 import ProductDetails from './components/ProductDetails';
 import PrivetRoute from './PrivetRoute/PrivetRoute';
@@ -44,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/mycart',
-        element:<PrivetRoute> <MyCart></MyCart></PrivetRoute>,
+        element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
         loader: () => fetch('http://localhost:5000/carts')
       },
       {
@@ -58,9 +57,9 @@ const router = createBrowserRouter([
         loader: () => fetch('http://localhost:5000/products')
       },
       {
-        path:'/productDetails/:name',
+        path:'/productDetails/:id',
         element: <PrivetRoute><ProductDetails></ProductDetails></PrivetRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/products/${params.name}`)
+        loader: () => fetch('http://localhost:5000/products')
       }
     ]
   },

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-const AllCart = ({ cartData }) => {
+const AllCart = ({ cartData,carts,setCarts }) => {
 
     const { image, name, _id, brand, product, price, short } = cartData;
-    const [carts, setCarts] = useState();
-
-    const handleDelete = (id) => {
+    // const [carts, setCarts] = useState();
+    
+    const handleDelete = (_id) => {
         // console.log(_id);
         Swal.fire({
             title: "Are you sure?",

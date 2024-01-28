@@ -12,13 +12,23 @@ const BrandAllProduct = ({ speacificBrandProducts }) => {
             <div className="card-body items-center text-center">
                 <h2 className="text-3xl">{brand}</h2>
                 <p className='text-xl'>{name}</p>
+                <p>
+                    <span className="text-2xl mr-2">4.5</span>
+                    <div className="rating">
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                    </div>
+                </p>
                 <p className='text-xl'>{price}</p>
                 <p>{short}</p>
                 <div className="card-actions">
                     <Link to={`/updateProduct/${_id}`}>
                         <button className="btn btn-primary">Update Prodect</button>
                     </Link>
-                    <Link to={`/productDetails/${name}`}>
+                    <Link to={`/productDetails/${_id}`}>
                         <button className="btn btn-primary">Details</button>
                     </Link>
                 </div>

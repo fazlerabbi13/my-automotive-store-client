@@ -1,16 +1,19 @@
 
 import { useLoaderData } from 'react-router-dom';
 import AllCart from '../components/AllCart';
+import { useState } from 'react';
 
 const MyCart = () => {
     const cartsData = useLoaderData();
+    const [carts, setCarts] = useState();
+    console.log(carts)
     return (
         <div>
             <h1 className='text-5xl text-center mt-10 mb-10'>Your All Cart Products Here</h1>
         
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 mb-10 ml-32'>
                 {
-                    cartsData.map(cartData => <AllCart cartData={cartData}></AllCart>)
+                    cartsData.map(cartData => <AllCart cartData={cartData} carts={carts}  setCarts={setCarts}></AllCart>)
                 }
             </div>
         
