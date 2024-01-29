@@ -21,7 +21,7 @@ const AddProduct = () => {
   
       // send data to server side
   
-      fetch('https://my-automotive-store-server2-6ikrinefu.vercel.app/products',{
+      fetch('https://my-automotive-store-server2.vercel.app/products',{
         method:'POST',
         headers:{
           'content-type':'application/json'

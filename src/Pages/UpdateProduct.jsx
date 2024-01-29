@@ -30,7 +30,7 @@ const UpdateProduct = () => {
 
         // send data to server side
 
-        fetch(`https://my-automotive-store-server2-6ikrinefu.vercel.app/products/${_id}`, {
+        fetch(`https://my-automotive-store-server2.vercel.app/products/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

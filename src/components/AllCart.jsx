@@ -3,6 +3,10 @@ import Swal from "sweetalert2";
 
 const AllCart = ({ cartData,carts,setCarts }) => {
 
+
+    const [carts, setCarts] = useState();
+    console.log(carts);
+
     const { image, name, _id, brand, product, price, short } = cartData;
     // const [carts, setCarts] = useState();
     
@@ -19,7 +23,7 @@ const AllCart = ({ cartData,carts,setCarts }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://my-automotive-store-server2-6ikrinefu.vercel.app/carts/${_id}`, {
+                fetch(`https://my-automotive-store-server2.vercel.app/carts/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -36,7 +40,6 @@ const AllCart = ({ cartData,carts,setCarts }) => {
                             setCarts(remainingCarts);
 
                         }
-
                     })
 
             }

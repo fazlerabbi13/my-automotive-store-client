@@ -44,22 +44,22 @@ const router = createBrowserRouter([
       {
         path: '/mycart',
         element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
-        loader: () => fetch('https://my-automotive-store-server2-6ikrinefu.vercel.app/carts')
+        loader: () => fetch('https://my-automotive-store-server2.vercel.app/carts')
       },
       {
         path:'/brandProducts/:brand',
         element:<BrandProducts></BrandProducts>,
-        loader: ({params}) => fetch(`https://my-automotive-store-server2-6ikrinefu.vercel.app/products/${params.brand}`)
+        loader: ({params}) => fetch(`https://my-automotive-store-server2.vercel.app/products/${params.brand}`)
       },
       {
         path:'/updateProduct/:id',
         element:<PrivetRoute><UpdateProduct></UpdateProduct></PrivetRoute>,
-        loader: () => fetch('https://my-automotive-store-server2-6ikrinefu.vercel.app/products')
+        loader: () => fetch('https://my-automotive-store-server2.vercel.app/products')
       },
       {
         path:'/productDetails/:id',
         element: <PrivetRoute><ProductDetails></ProductDetails></PrivetRoute>,
-        loader: () => fetch('https://my-automotive-store-server2-6ikrinefu.vercel.app/products')
+        loader: () => fetch('https://my-automotive-store-server2.vercel.app/products')
       }
     ]
   },
