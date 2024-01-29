@@ -23,7 +23,6 @@ const Login = () => {
 
     signInUser(email, password)
       .then(result => {
-        console.log(result.user);
         e.target.reset();
          navigate('/');
         
@@ -36,7 +35,6 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     signinWithGoogle()
       .then(result => {
-        console.log(result.user)
         navigate('/')
       })
       .catch(error => console.error(error))
