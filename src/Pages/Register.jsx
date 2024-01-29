@@ -12,7 +12,7 @@ const Register = () => {
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(name, email, password);
+    
 
     if (password.length < 6) {
       toast.error('password should be al least 6 charecter')
@@ -25,7 +25,6 @@ const Register = () => {
 
     createUser(email, password)
       .then(result => {
-        console.log(result.user);
         e.target.reset();
          navigate('/login');
       })
