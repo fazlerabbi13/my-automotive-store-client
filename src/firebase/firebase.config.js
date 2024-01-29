@@ -5,16 +5,19 @@ import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+const all= import.meta.env;
+
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB99SQUOy6dBnDBl3QqFIsnAxxzUIg_NG8",
-  authDomain: "automotive-store-2264f.firebaseapp.com",
-  projectId: "automotive-store-2264f",
-  storageBucket: "automotive-store-2264f.appspot.com",
-  messagingSenderId: "843460287481",
-  appId: "1:843460287481:web:1915402efee70ea8f13b28"
+  apiKey: all.VITE_apiKey,
+  authDomain: all.VITE_authDomain,
+  projectId: all.VITE_projectId,
+  storageBucket: all.VITE_storageBucket,
+  messagingSenderId: all.VITE_messagingSenderId,
+  appId: all.VITE_appId
 };
-
+console.log(firebaseConfig);
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);

@@ -16,7 +16,7 @@ const ProductDetails = () => {
 
         const newAddProduct ={brand,image,name,price,short,product}
 
-        fetch(`http://localhost:5000/carts`, {
+        fetch(`https://my-automotive-store-server2-6ikrinefu.vercel.app/carts`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
